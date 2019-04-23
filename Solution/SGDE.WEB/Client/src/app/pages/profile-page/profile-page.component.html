@@ -1,0 +1,212 @@
+<h2 class="text-center">Profile Page</h2>
+<div class="text-center">
+  <nav class="breadcrumb mx-auto d-inline-block">
+    <a class="breadcrumb-item text-body" routerLink="/">Home</a>
+    <a class="breadcrumb-item text-body" routerLink="/">User pages</a>
+    <span class="breadcrumb-item active">Profile Page</span>
+  </nav>
+</div>
+<div class="card">
+  <div class="card-body p-4">
+    <div class="row">
+      <div class="col-12 col-lg-6 col-xl-3 mb-5 text-center text-lg-left">
+        <img class="img-fluid mt-4 mb-5" src="/assets/images/profile/avatar.png">
+        <div>
+          <h5 class="mb-4">Contact</h5>
+          <ul class="list-unstyled mb-0">
+            <li class="media mb-3 align-items-center">
+              <div class="media-body">
+                <i class="icon-envelope h6 text-primary mr-2"></i>
+                <a href="mailto:ElaineVeit@gmail.com" class="color-inherit">ElaineVeit@gmail.com</a>
+              </div>
+            </li>
+            <li class="media mb-3 align-items-center">
+              <div class="media-body">
+                <i class="icon-location-pin h6 text-primary mr-2"></i>
+                <span>33 Green Street, New York</span>
+              </div>
+            </li>
+            <li class="media mb-3 align-items-center">
+              <div class="media-body">
+                <i class="icon-phone h6 text-primary mr-2"></i>
+                <span>+1 222-333-4444</span>
+              </div>
+            </li>
+            <li class="media mb-3 align-items-center">
+              <div class="media-body">
+                <i class="icon-social-facebook h6 text-primary mr-2"></i>
+                <a href="/" class="color-inherit">Facebook.com/ElaineVeit</a>
+              </div>
+            </li>
+            <li class="media align-items-center">
+              <div class="media-body">
+                <i class="icon-social-skype h6 text-primary mr-2"></i>
+                <span>Elaine-Veit</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6 col-xl-5 pr-xl-5 mb-5  text-center text-lg-left">
+        <h5>Elaine Veit</h5>
+        <div class="mb-2">UI Designer, LotBan</div>
+        <ngb-rating class="mb-5" [rate]="rating" max="5">
+          <ng-template let-fill="fill">
+            <span class="h5">
+              <i class="fa text-primary" [class.fa-star]="fill === 100" [class.fa-star-o]="fill !== 100"></i>
+            </span>
+          </ng-template>
+        </ngb-rating>
+        <div class="row mb-5">
+          <div class="col-12 col-sm-3 col-xl-2">
+            <h5 class="text-primary mb-5">About</h5>
+          </div>
+          <div class="col-12 col-sm-9 col-xl-10 text-justify">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab atque doloribus dolorum ducimus eveniet
+              fugiat hic illo laboriosam magni numquam vero?</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-sm-3 col-xl-2">
+            <h5 class="text-primary mb-5">Projects</h5>
+          </div>
+          <div class="col-12 col-sm-9 col-xl-10">
+            <ul class="list-unstyled mb-0">
+              <li>
+                <div class="media mb-3">
+                  <div class="list-abbr mr-3">LB</div>
+                  <div class="media-body text-left">
+                    <h5 class="mb-1">LotBank</h5>
+                    <div>Senior Designer</div>
+                  </div>
+                </div>
+                <div class="text-justify">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aut et facere, laudantium quos ratione!
+                  Hic inventore minima, necessitatibus obcaecati sunt voluptatum. Aut deserunt numquam, quae quibusdam
+                  reprehenderit vel vitae!
+                </div>
+              </li>
+              <div class="dropdown-divider my-4"></div>
+              <li>
+                <div class="media mb-3">
+                  <div class="list-abbr mr-3">LR</div>
+                  <div class="media-body text-left">
+                    <h5 class="mb-1">LotRun</h5>
+                    <div>Junior Designer</div>
+                  </div>
+                </div>
+                <div class="text-justify">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque, consequuntur ex facilis laboriosam odio
+                  odit possimus repellendus ullam unde voluptas.
+                </div>
+              </li>
+              <div class="dropdown-divider my-4"></div>
+              <li>
+                <div class="media mb-3">
+                  <div class="list-abbr mr-3">LS</div>
+                  <div class="media-body text-left">
+                    <h5 class="mb-1">LotSupport</h5>
+                    <div>Designer</div>
+                  </div>
+                </div>
+                <div class="text-justify">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda blanditiis facere quas ut veritatis.
+                  Autem delectus nostrum repellendus? Nostrum sapiente, veritatis. A culpa, dolore ducimus ea esse et fuga
+                  laboriosam magni nobis quas quia ratione reiciendis vel voluptatibus voluptatum. A debitis dolorum enim
+                  esse explicabo fugit inventore iure numquam, quae quidem! Accusantium commodi cumque earum fugit placeat
+                  quas quidem quod?
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-xl-4">
+        <h5 class="text-primary mb-5">Team</h5>
+        <ul class="list-unstyled mb-0">
+          <li class="media mb-4">
+            <img class="d-flex mr-4" src="/assets/images/profile/avatar-sm-1.png">
+            <div class="media-body">
+              <div class="d-flex justify-content-between">
+                <span>Elaine Veit</span>
+                <small>5 mins ago</small>
+              </div>
+              <div>
+                <small>Tech Lead, <span class="text-primary">LotSupport</span></small>
+              </div>
+              <div>
+                <i class="icon-location-pin"></i>
+                <small>New Yourk, USA</small>
+              </div>
+            </div>
+          </li>
+          <li class="media mb-4">
+            <img class="d-flex mr-4" src="/assets/images/profile/avatar-sm-2.png">
+            <div class="media-body">
+              <div class="d-flex justify-content-between">
+                <span>John Roberts</span>
+                <small class="text-primary">Online</small>
+              </div>
+              <div>
+                <small>Developer, <span class="text-primary">LotBank</span></small>
+              </div>
+              <div>
+                <i class="icon-location-pin"></i>
+                <small>Canberra, Australia</small>
+              </div>
+            </div>
+          </li>
+          <li class="media mb-4">
+            <img class="d-flex mr-4" src="/assets/images/profile/avatar-sm-3.png">
+            <div class="media-body">
+              <div class="d-flex justify-content-between">
+                <span>Nancy Coleman</span>
+                <small>1 hour ago</small>
+              </div>
+              <div>
+                <small>Team Lead,<span class="text-primary">LotBank</span></small>
+              </div>
+              <div>
+                <i class="icon-location-pin"></i>
+                <small>London, UK</small>
+              </div>
+            </div>
+          </li>
+          <li class="media mb-4">
+            <img class="d-flex mr-4" src="/assets/images/profile/avatar-sm-4.png">
+            <div class="media-body">
+              <div class="d-flex justify-content-between">
+                <span>Margie Powell</span>
+                <small>10 mins ago</small>
+              </div>
+              <div>
+                <small>Developer,<span class="text-primary">LotBank</span></small>
+              </div>
+              <div>
+                <i class="icon-location-pin"></i>
+                <small>Ottawa, Canada</small>
+              </div>
+            </div>
+          </li>
+          <li class="media">
+            <img class="d-flex mr-4" src="/assets/images/profile/avatar-sm-5.png">
+            <div class="media-body">
+              <div class="d-flex justify-content-between">
+                <span>Winifred Gordon</span>
+                <small class="text-primary">Online</small>
+              </div>
+              <div>
+                <small>Designer, <span class="text-primary">LotSupport</span></small>
+              </div>
+              <div>
+                <i class="icon-location-pin"></i>
+                <small> Paris, France</small>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

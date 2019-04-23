@@ -1,0 +1,54 @@
+@import "../../../styles/variables";
+@mixin round-bg-gradient($left, $top) {
+  background-image: radial-gradient(circle at $left $top, rgba(#ffffff, 0.2) 0%, rgba(#ffffff, 0.2) 25%, transparent 25.03%),
+  radial-gradient(circle at $left $top, rgba(#ffffff, 0.2) 0%, rgba(#ffffff, 0.2) 20%, transparent 20.03%),
+  radial-gradient(circle at $left $top, rgba(#ffffff, 0.31) 0%, rgba(#ffffff, 0.31) 15%, transparent 15.03%);
+}
+
+app-maintenance-page {
+  background-color: $primary-color;
+  @include round-bg-gradient(70%, 50%);
+  img {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 40%;
+  }
+  .content {
+    padding-left: calc(40% + 40px);
+    padding-right: 115px;
+    font-size: 18px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    .title {
+      font-family: 'Raleway';
+      font-size: 60px;
+    }
+    .input-group {
+      max-width: 420px;
+      margin: 0 auto;
+    }
+  }
+  footer {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  @media screen and (max-width: 768px) {
+    @include round-bg-gradient(50%, 40%);
+    padding-bottom: 130px;
+    min-height: 1050px;
+    .content {
+      position: static;
+      padding: 50px 20px;
+      transform: none;
+    }
+    img {
+      position: static;
+      transform: none;
+      max-width: 100%;
+    }
+  }
+}
