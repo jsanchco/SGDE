@@ -20,10 +20,6 @@ const APP_ROUTES: Routes = [
       {path: 'dashboard', component: DashboardPageComponent},
       {path: 'users', component: UsersPageComponent},
       {path: 'professions', component: ProfessionsPageComponent},
-      {
-        path: 'car',
-        loadChildren: './pages/car-page/car.module#CarModule'
-      },
       {path: 'login', component: LoginPageComponent},
       {path: 'profile', component: ProfilePageComponent},
       {path: '', redirectTo: 'dashboard', pathMatch: 'prefix'},

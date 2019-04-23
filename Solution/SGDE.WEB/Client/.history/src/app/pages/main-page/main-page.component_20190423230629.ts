@@ -38,8 +38,8 @@ export class MainPageComponent implements OnInit {
       iconCode: 'build',
     },
     {
-      title: 'Car',
-      routerUrl: '/main/car',
+      title: 'Cars',
+      routerUrl: '/main/cars',
       iconClass: 'material-icons',
       iconCode: 'build',
     }

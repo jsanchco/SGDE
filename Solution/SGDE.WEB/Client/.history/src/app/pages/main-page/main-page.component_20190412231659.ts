@@ -36,12 +36,6 @@ export class MainPageComponent implements OnInit {
       routerUrl: '/main/professions',
       iconClass: 'material-icons',
       iconCode: 'build',
-    },
-    {
-      title: 'Car',
-      routerUrl: '/main/car',
-      iconClass: 'material-icons',
-      iconCode: 'build',
     }
     // {
     //   title: 'User pages',
