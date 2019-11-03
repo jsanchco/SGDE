@@ -1,5 +1,5 @@
 ﻿// ReSharper disable InconsistentNaming
-namespace SGDE.DataEFCoreSQL
+namespace SGDE.DataEFCoreMySQL
 {
     #region Using
 
@@ -10,7 +10,7 @@ namespace SGDE.DataEFCoreSQL
 
     #endregion
 
-    public class EFContext : DbContext
+    public class EFContextMySQL : DbContext
     {
         #region Members
 
@@ -22,7 +22,7 @@ namespace SGDE.DataEFCoreSQL
 
         #endregion
 
-        public EFContext(DbContextOptions options) : base(options) => Interlocked.Increment(ref InstanceCount);
+        public EFContextMySQL(DbContextOptions options) : base(options) => Interlocked.Increment(ref InstanceCount);
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -1,4 +1,4 @@
-﻿namespace SGDE.DataEFCoreSQL.Repositories
+﻿namespace SGDE.DataEFCoreMySQL.Repositories
 {
     #region Using
 
@@ -14,9 +14,9 @@
 
     public class UserRepository : IUserRepository
     {
-        private readonly EFContextSQL _context;
+        private readonly EFContextMySQL _context;
 
-        public UserRepository(EFContextSQL context)
+        public UserRepository(EFContextMySQL context)
         {
             _context = context;
         }

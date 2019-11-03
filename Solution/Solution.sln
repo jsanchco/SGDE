@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.572
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SGDE.Domain", "SGDE.Domain\SGDE.Domain.csproj", "{129211EA-5060-4988-B0BC-7606BFB99589}"
 EndProject
@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SGDE.SeedData", "SGDE.SeedD
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SGDE.API", "SGDE.API\SGDE.API.csproj", "{60719B52-384B-4A90-BBF2-020994A7DB3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SGDE.WEB", "SGDE.WEB\SGDE.WEB.csproj", "{BD509D61-2EAD-4CC9-B13D-5699762DA9FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SGDE.WEB", "SGDE.WEB\SGDE.WEB.csproj", "{BD509D61-2EAD-4CC9-B13D-5699762DA9FB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SGDE.DataEFCoreMySQL", "SGDE.DataEFCoreMySQL\SGDE.DataEFCoreMySQL.csproj", "{C3910B75-3D73-49A6-885A-E81020A8F553}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{BD509D61-2EAD-4CC9-B13D-5699762DA9FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD509D61-2EAD-4CC9-B13D-5699762DA9FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD509D61-2EAD-4CC9-B13D-5699762DA9FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3910B75-3D73-49A6-885A-E81020A8F553}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3910B75-3D73-49A6-885A-E81020A8F553}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3910B75-3D73-49A6-885A-E81020A8F553}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3910B75-3D73-49A6-885A-E81020A8F553}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

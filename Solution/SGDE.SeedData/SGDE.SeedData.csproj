@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SGDE.DataEFCoreMySQL\SGDE.DataEFCoreMySQL.csproj" />
     <ProjectReference Include="..\SGDE.DataEFCoreSQL\SGDE.DataEFCoreSQL.csproj" />
     <ProjectReference Include="..\SGDE.Domain\SGDE.Domain.csproj" />
   </ItemGroup>

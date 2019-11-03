@@ -78,6 +78,7 @@
         //}
 
         [HttpGet]
+        [AllowAnonymous]
         public object Get()
         {
             try
