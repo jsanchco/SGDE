@@ -15,7 +15,7 @@
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new[] { "value1", "value2" };
+            return new[] { "value1", "value4" };
         }
 
         // GET api/values/5

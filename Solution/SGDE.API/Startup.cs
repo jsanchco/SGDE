@@ -36,7 +36,8 @@
                 options.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver();
             });
 
-            services.ConfigureRepositories()
+            services
+                .ConfigureRepositories(Configuration)
                 .ConfigureSupervisor()
                 .AddMiddleware()
                 .AddCorsConfiguration()

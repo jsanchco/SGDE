@@ -27,6 +27,7 @@ docker run -p 8000:80 sgde.api
 
 docker-compose up
 docker-compose up -d
+docker-compose up -d --build
 
 docker-compose down
 

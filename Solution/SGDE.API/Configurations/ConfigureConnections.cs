@@ -9,6 +9,7 @@
     using Microsoft.Extensions.DependencyInjection;
     using DataEFCoreSQL;
     using DataEFCoreMySQL;
+    using SGDE.Domain.Helpers;
 
     #endregion
 
@@ -18,18 +19,32 @@
         {
             var connection = string.Empty;
 
-            //if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            //{
-            //    connection = configuration.GetConnectionString("SGDEContextSQL") ??
-            //                     "Data Source=WMAD01-014687\\SQLEXPRESS;Initial Catalog=People;Integrated Security=True;";
-            //}
+            var appSettingsSection = configuration.GetSection("AppSettings");
+            services.Configure<AppSettings>(appSettingsSection);
+            var appSettings = appSettingsSection.Get<AppSettings>();
+            switch(appSettings.DI) {
+                case "SQL":
+                    if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                    {
+                        connection = configuration.GetConnectionString("SGDEContextSQL") ??
+                                         "Data Source=WMAD01-014687\\SQLEXPRESS;Initial Catalog=People;Integrated Security=True;";
+                    }
 
-            //services.AddDbContextPool<EFContextSQL>(options => options.UseSqlServer(connection));
-            //services.AddSingleton(new DbInfo(connection));
+                    services.AddDbContextPool<EFContextSQL>(options => options.UseSqlServer(connection));
+                    services.AddSingleton(new DbInfo(connection));
+                    break;
+                case "MySQL":
+                    connection = configuration.GetConnectionString("SGDEContextMySQL");
+                    services.AddDbContextPool<EFContextMySQL>(options => options.UseMySql(connection));
+                    services.AddSingleton(new DbInfo(connection));
+                    break;
 
-            connection = configuration.GetConnectionString("SGDEContextMySQL");
-            services.AddDbContextPool<EFContextMySQL>(options => options.UseMySql(connection));
-            services.AddSingleton(new DbInfo(connection));
+                default:
+                    connection = configuration.GetConnectionString("SGDEContextMySQL");
+                    services.AddDbContextPool<EFContextMySQL>(options => options.UseMySql(connection));
+                    services.AddSingleton(new DbInfo(connection));
+                    break;
+            }
 
             return services;
         }

@@ -2,8 +2,6 @@
 {
     #region Using
 
-    //using DataEFCoreSQL.Repositories;
-    using DataEFCoreMySQL.Repositories;
     using Domain.Repositories;
     using Domain.Supervisor;
     using Microsoft.Extensions.DependencyInjection;
@@ -18,12 +16,33 @@
 
     public static class ServicesConfiguration
     {
-        public static IServiceCollection ConfigureRepositories(this IServiceCollection services)
+        public static IServiceCollection ConfigureRepositories(this IServiceCollection services, IConfiguration configuration)
         {
-            services
-                .AddScoped<IUserRepository, UserRepository>()
-                .AddScoped<IAddressRepository, AddressRepository>()
-                .AddScoped<IProfessionRepository, ProfessionRepository>();
+            var appSettingsSection = configuration.GetSection("AppSettings");
+            services.Configure<AppSettings>(appSettingsSection);
+            var appSettings = appSettingsSection.Get<AppSettings>();
+            switch (appSettings.DI)
+            {
+                case "SQL":
+                    services
+                        .AddScoped<IUserRepository, DataEFCoreSQL.Repositories.UserRepository>()
+                        .AddScoped<IAddressRepository, DataEFCoreSQL.Repositories.AddressRepository>()
+                        .AddScoped<IProfessionRepository, DataEFCoreSQL.Repositories.ProfessionRepository>();
+                    break;
+                case "MySQL":
+                    services
+                        .AddScoped<IUserRepository, DataEFCoreMySQL.Repositories.UserRepository>()
+                        .AddScoped<IAddressRepository, DataEFCoreMySQL.Repositories.AddressRepository>()
+                        .AddScoped<IProfessionRepository, DataEFCoreMySQL.Repositories.ProfessionRepository>();
+                    break;
+
+                default:
+                    services
+                        .AddScoped<IUserRepository, DataEFCoreMySQL.Repositories.UserRepository>()
+                        .AddScoped<IAddressRepository, DataEFCoreMySQL.Repositories.AddressRepository>()
+                        .AddScoped<IProfessionRepository, DataEFCoreMySQL.Repositories.ProfessionRepository>();
+                    break;
+            }
 
             return services;
         }
@@ -45,7 +64,7 @@
             return services;
         }
 
-        public static IServiceCollection AddCorsConfiguration(this IServiceCollection services) =>        
+        public static IServiceCollection AddCorsConfiguration(this IServiceCollection services) =>
             services.AddCors(options =>
             {
                 options.AddPolicy("AllowAll", new Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder()
