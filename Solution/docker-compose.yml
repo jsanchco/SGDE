@@ -1,0 +1,35 @@
+version: '3.0'
+ 
+services:
+   db:
+     image: mysql:latest
+     container_name: mysql-db
+     environment:
+       MYSQL_DATABASE: PeopleDB
+       MYSQL_ROOT_PASSWORD: Aceitun@1
+     restart: always
+     ports:
+       # <Port exposed> : < MySQL Port running inside container>
+       - '3306:3306'
+     expose:
+       # Opens port 3306 on the container
+       - '3306'
+      # Where our data will be persisted
+     volumes:
+       - my-db:/var/lib/mysql
+
+   sgdeapi:
+     container_name: sgde.api
+     depends_on:
+       - db
+     image: sgde.api
+     build:
+       context: .
+       dockerfile: SGDE.API/Dockerfile  
+     ports:
+       - "8000:80"
+     environment:
+       ConnectionStrings__SGDEContextMySQL: Server=db;Port=3306;Database=PeopleDB;User=root;Password=Aceitun@1;
+
+volumes:
+     my-db:

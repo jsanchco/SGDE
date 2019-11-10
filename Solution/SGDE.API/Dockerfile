@@ -1,20 +1,22 @@
-﻿FROM mcr.microsoft.com/dotnet/core/aspnet:2.2 AS base
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.2-stretch-slim AS base
 WORKDIR /app
+EXPOSE 80
 
-COPY solution.sln .
-COPY sgde.api/*.csproj ./sgde.api/
-COPY sgde.dataefcoremysql/*.csproj ./sgde.sgde.dataefcoremysql/
-COPY sgde.dataefcoresql/*.csproj ./sgde.sgde.dataefcoresql/
-COPY sgde.domain/*.csproj ./sgde.sgde.domain/
-RUN dotnet restore
+FROM mcr.microsoft.com/dotnet/core/sdk:2.2-stretch AS build
+WORKDIR /src
+COPY ["SGDE.API/SGDE.API.csproj", "SGDE.API/"]
+COPY ["SGDE.Domain/SGDE.Domain.csproj", "SGDE.Domain/"]
+COPY ["SGDE.DataEFCoreMySQL/SGDE.DataEFCoreMySQL.csproj", "SGDE.DataEFCoreMySQL/"]
+COPY ["SGDE.DataEFCoreSQL/SGDE.DataEFCoreSQL.csproj", "SGDE.DataEFCoreSQL/"]
+RUN dotnet restore "SGDE.API/SGDE.API.csproj"
+COPY . .
+WORKDIR "/src/SGDE.API"
+RUN dotnet build "SGDE.API.csproj" -c Release -o /app/build
 
-RUN dotnet restore solution.sln
+FROM build AS publish
+RUN dotnet publish "SGDE.API.csproj" -c Release -o /app/publish
 
-COPY sgde.api/. ./sgde.api/
-WORKDIR /app/sgde.api
-RUN dotnet publish -c Release -o out
-
+FROM base AS final
 WORKDIR /app
-WORKDIR /app
-COPY --from=build /app/sgde.api/out ./
-ENTRYPOINT ["dotnet", "sgde.api.dll"]
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "SGDE.API.dll"]

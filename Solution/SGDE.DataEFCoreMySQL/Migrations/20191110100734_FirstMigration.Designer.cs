@@ -9,7 +9,7 @@ using SGDE.DataEFCoreMySQL;
 namespace SGDE.DataEFCoreMySQL.Migrations
 {
     [DbContext(typeof(EFContextMySQL))]
-    [Migration("20191103071351_FirstMigration")]
+    [Migration("20191110100734_FirstMigration")]
     partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
