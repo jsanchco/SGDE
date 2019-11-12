@@ -30,6 +30,15 @@ services:
        - "8000:80"
      environment:
        ConnectionStrings__SGDEContextMySQL: Server=db;Port=3306;Database=PeopleDB;User=root;Password=Aceitun@1;
+       
+   sgdewebclient:
+     container_name: sgde.webclient
+     image: sgde.webclient
+     build:
+       context: .
+       dockerfile: SGDE.WebClient/Dockerfile  
+     ports:
+       - "8010:80"      
 
 volumes:
      my-db:
